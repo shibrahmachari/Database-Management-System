@@ -1,0 +1,319 @@
+mysql> create database book;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use book
+Database changed
+mysql> create table Author(
+    -> authorname char(500),
+    -> citizenship char(200),
+    -> birthyear int);
+ERROR 1074 (42000): Column length too big for column 'authorname' (max = 255); use BLOB or TEXT instead
+mysql> create table Author(
+    -> authorname char(100),
+    -> citizenship char(200),
+    -> birthyear int);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table Book(
+    -> ISBN int,
+    -> Title char(100),
+    -> authorname char(100));
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table Topic(
+    -> ISBN int,
+    -> Subject char(100));
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> create table BRANCH(
+    -> Libname char(100),
+    -> City char(100));
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table Instock(
+    -> ISBN int,
+    -> Libname char(100),
+    -> quantity int);
+Query OK, 0 rows affected (0.09 sec)
+mysql> insert into Author
+    -> values("George Orwell","AMERICAN","1903");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Author
+    -> values("JAMES JOYCE","AMERICAN","1882");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Author
+    -> values("F.SCOTT","ITALIAN","1896");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Author
+    -> values("LEO","ITALIAN","1828");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Author
+    -> values("CHARLES DICKENS","AMERICAN","1868");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Author
+    -> values("JK ROWLING","AMERICAN","1965");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from Author;
++-----------------+-------------+-----------+
+| authorname      | citizenship | birthyear |
++-----------------+-------------+-----------+
+| George Orwell   | AMERICAN    |      1903 |
+| JAMES JOYCE     | AMERICAN    |      1882 |
+| F.SCOTT         | ITALIAN     |      1896 |
+| LEO             | ITALIAN     |      1828 |
+| CHARLES DICKENS | AMERICAN    |      1868 |
+| JK ROWLING      | AMERICAN    |      1965 |
++-----------------+-------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> insert into Book
+    -> values("1234","peppy and beast","George Orwell");
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into Book
+    -> values("1235","The Dead","JAMES JOYCE");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Book
+    -> values("1435","Tender is the night","F.SCOTT");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Book
+    -> values("1335","The very best","LEO");
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into Book
+    -> values("2335","Oliver twist","CHARLES DICKENS");
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into Book
+    -> values("2314","HARRY POTTER","JK ROWLING");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Topic
+    -> values("1234","ALCOHOL");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Topic
+    -> values("1235","DRUGS");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Topic
+    -> values("1435","FANTASY");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Topic
+    -> values("1335","AUTOBIOGRAPHY");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Topic
+    -> values("2335","COMEDY");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Topic
+    -> values("2314","FICTION");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into BRANCH
+    -> insert into BRANCH;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert into BRANCH' at line 2
+mysql> insert into BRANCH
+    -> values("ALICE SPRING","AUSTRALIA");
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into BRANCH
+    -> values("ALOGHAR","BANGLADESH");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into BRANCH
+    -> values("CAMBRIDGE","ENGLAND");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into BRANCH
+    -> values("CHANGHUA","SYDNEY");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into BRANCH
+    -> values("CENTRE OF PUBLIC LIBRARAY","MELBOURNE");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Instock
+    -> insert into Topic
+
+
+mysql> insert into Instock
+    -> values("1234","ALICE SPRING",2);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Instock
+    -> values("1235","ALICE SPRING",67);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Instock
+    -> values("1435","ALOGHAR",6);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Instock
+    -> values("1335","CAMBRIDGE",10);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Instock
+    -> values("2335","CHANGHUA",8);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Instock
+    -> values("2314","CENTRE OF PUBLIC LIBRARY",12);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from Instock;
++------+--------------------------+----------+
+| ISBN | Libname                  | quantity |
++------+--------------------------+----------+
+| 1234 | ALICE SPRING             |        2 |
+| 1235 | ALICE SPRING             |       67 |
+| 1435 | ALOGHAR                  |        6 |
+| 1335 | CAMBRIDGE                |       10 |
+| 2335 | CHANGHUA                 |        8 |
+| 2314 | CENTRE OF PUBLIC LIBRARY |       12 |
++------+--------------------------+----------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
